@@ -12,8 +12,8 @@ namespace FishbowlSQL.Models;
 public class OrderType
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public int Id { get; init; }
 
     [StringLength(15), Required]
-    public string Name { get; set; }
+    public string Name { get; init; }
 }

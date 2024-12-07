@@ -12,58 +12,58 @@ namespace FishbowlSQL.Models;
 public class TaxRate
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public int Id { get; init; }
         
     [StringLength(30)]
-    public string? AccountingHash { get; set; }
+    public string? AccountingHash { get; init; }
 
     [StringLength(36)]
-    public string? AccountingId { get; set; }
+    public string? AccountingId { get; init; }
         
     [Required]
-    public bool ActiveFlag { get; set; }
+    public bool ActiveFlag { get; init; }
 
     [StringLength(5)]
-    public string? Code { get; set; }
+    public string? Code { get; init; }
         
-    public DateTimeOffset? DateCreated { get; set; }
+    public DateTimeOffset? DateCreated { get; init; }
         
-    public DateTimeOffset? DateLastModified { get; set; }
+    public DateTimeOffset? DateLastModified { get; init; }
         
     [Required]
-    public bool DefaultFlag { get; set; }
+    public bool DefaultFlag { get; init; }
 
     [StringLength(256)]
-    public string? Description { get; set; }
+    public string? Description { get; init; }
 
     [StringLength(31), Required]
-    public string Name { get; set; }
+    public string Name { get; init; }
         
-    public int? OrderTypeId { get; set; }
+    public int? OrderTypeId { get; init; }
         
-    public double? Rate { get; set; }
+    public double? Rate { get; init; }
         
-    public int? TaxAccountId { get; set; }
+    public int? TaxAccountId { get; init; }
 
     [StringLength(25)]
-    public string TypeCode { get; set; }
+    public string TypeCode { get; init; }
         
     [Required]
-    public int TypeId { get; set; }
+    public int TypeId { get; init; }
         
-    public decimal? UnitCost { get; set; }
+    public decimal? UnitCost { get; init; }
         
-    public int? VendorId { get; set; }
+    public int? VendorId { get; init; }
     
     [ForeignKey("OrderTypeId")]
-    public virtual OrderType OrderType { get; set; }
+    public virtual OrderType OrderType { get; init; }
     
     [ForeignKey("TaxAccountId")]
-    public virtual AsAccount TaxAccount { get; set; }
+    public virtual AsAccount TaxAccount { get; init; }
     
     [ForeignKey("VendorId")]
-    public virtual Vendor Vendor { get; set; }
+    public virtual Vendor Vendor { get; init; }
     
     [ForeignKey("typeId"), Required]
-    public virtual TaxRateType TaxRateType { get; set; }
+    public virtual TaxRateType TaxRateType { get; init; }
 }

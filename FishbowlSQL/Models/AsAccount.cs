@@ -12,28 +12,28 @@ namespace FishbowlSQL.Models;
 public class AsAccount
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public int Id { get; init; }
         
     [StringLength(36)]
-    public string? AccountNumber { get; set; }
+    public string? AccountNumber { get; init; }
 
     [StringLength(30)]
-    public string? AccountingHash { get; set; }
+    public string? AccountingHash { get; init; }
 
     [StringLength(36)]
-    public string? AccountingId { get; set; }
+    public string? AccountingId { get; init; }
         
-    public bool? ActiveFlag { get; set; } // Nullable as defined in MySQL script
+    public bool? ActiveFlag { get; init; } // Nullable as defined in MySQL script
 
-    public DateTimeOffset? DateCreated { get; set; }
+    public DateTimeOffset? DateCreated { get; init; }
         
-    public DateTimeOffset? DateLastModified { get; set; }
+    public DateTimeOffset? DateLastModified { get; init; }
 
     [StringLength(155), Required]
-    public string Name { get; set; }
+    public string Name { get; init; }
         
-    public int? TypeId { get; set; }
+    public int? TypeId { get; init; }
 
     [ForeignKey("TypeId")]
-    public virtual AsAccountType AsAccountType { get; set; }
+    public virtual AsAccountType AsAccountType { get; init; }
 }
