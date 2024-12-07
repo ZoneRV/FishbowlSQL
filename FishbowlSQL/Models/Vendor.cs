@@ -66,8 +66,10 @@ namespace FishbowlSQL.Models;
         [StringLength(256)]
         public string? Url { get; init; }
         
-        public string? CustomFields { get; init; } // TODO: You might want to parse this JSON in your application
-
+        // TODO: Implement manual handling for the CustomFields as it's a JSON type
+        [Column(TypeName="json")]
+        public string? CustomFields { get; init; }
+        
         [ForeignKey("accountId"), Required]
         public virtual Account Account { get; init; }
         

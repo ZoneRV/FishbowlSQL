@@ -92,7 +92,9 @@ public class Customer
 
     public int? IssuableStatusId { get; init; }
 
-    public string? CustomFields { get; init; } //TODO: Parse json
+    // TODO: Implement manual handling for the CustomFields as it's a JSON type
+    [Column(TypeName="json")]
+    public string? CustomFields { get; init; }
 
     [ForeignKey("accountId"), Required] 
     public virtual Account Account { get; init; } = default(Account)!;

@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FishbowlSQL.Models;
 
-
 /// <summary>
 ///     See <a href="https://github.com/ZoneRV/FishbowlSQL/blob/master/FishbowlSQL/SQL%20files/product.sql">Link</a> for
 ///     SQL script.
@@ -104,7 +103,7 @@ public class Product
     
     // TODO: Implement manual handling for the CustomFields as it's a JSON type
     [Column(TypeName="json")]
-    public string? CustomFields { get; init; } 
+    public string? CustomFields { get; init; }
     
     [ForeignKey("defaultSoItemType"), Required]
     public virtual SoItemType DefaultSoItemTypeNavigation { get; init; }

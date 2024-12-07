@@ -43,5 +43,7 @@ public class SysUser
     [Required] 
     public int MfaBypassCounter { get; init; }
 
-    // TODO: handling 'customFields' column manually because it's json type
+    // TODO: Implement manual handling for the CustomFields as it's a JSON type
+    [Column(TypeName="json")]
+    public string? CustomFields { get; init; }
 }
