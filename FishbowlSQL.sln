@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishbowlSQL", "FishbowlSQL\FishbowlSQL.csproj", "{989B05C2-4DBF-4F9B-A4A9-33779F8407D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{A1FF6DA8-C805-4F7B-97A8-10E1F9813CEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{989B05C2-4DBF-4F9B-A4A9-33779F8407D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{989B05C2-4DBF-4F9B-A4A9-33779F8407D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{989B05C2-4DBF-4F9B-A4A9-33779F8407D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{989B05C2-4DBF-4F9B-A4A9-33779F8407D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1FF6DA8-C805-4F7B-97A8-10E1F9813CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1FF6DA8-C805-4F7B-97A8-10E1F9813CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1FF6DA8-C805-4F7B-97A8-10E1F9813CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1FF6DA8-C805-4F7B-97A8-10E1F9813CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
