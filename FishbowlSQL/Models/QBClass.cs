@@ -11,23 +11,28 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class QbClass
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
-    [StringLength(30)] public string? AccountingHash { get; init; }
+    [StringLength(30)] 
+    public string? AccountingHash { get; init; }
 
-    [StringLength(36)] public string? AccountingId { get; init; }
+    [StringLength(36)] 
+    public string? AccountingId { get; init; }
 
-    [Required] public bool ActiveFlag { get; init; }
+    [Required] 
+    public bool ActiveFlag { get; init; }
 
     public DateTimeOffset? DateCreated { get; init; }
 
     public DateTimeOffset? DateLastModified { get; init; }
 
-    [StringLength(31)] [Required] public string Name { get; init; }
+    [StringLength(31), Required] 
+    public string Name { get; init; }
 
-    [Required] public int ParentId { get; init; }
+    [Required] 
+    public int ParentId { get; init; }
 
-    [ForeignKey("ParentId")] [Required] public QbClass Parent { get; init; }
+    [ForeignKey("ParentId"), Required] 
+    public virtual QbClass Parent { get; init; }
 }

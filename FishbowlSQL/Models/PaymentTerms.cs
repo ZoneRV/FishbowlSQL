@@ -11,15 +11,15 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class PaymentTerms
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
     public string? AccountingHash { get; init; }
 
     public string? AccountingId { get; init; }
 
-    [Required] public bool ActiveFlag { get; init; }
+    [Required] 
+    public bool ActiveFlag { get; init; }
 
     public DateTimeOffset? DateCreated { get; init; }
 
@@ -31,17 +31,19 @@ public class PaymentTerms
 
     public int? DiscountDays { get; init; }
 
-    [StringLength(31)] [Required] public string Name { get; init; }
+    [StringLength(31), Required] 
+    public string Name { get; init; }
 
     public int? NetDays { get; init; }
 
     public int? NextMonth { get; init; }
 
-    [Required] public bool ReadOnly { get; init; }
+    [Required] 
+    public bool ReadOnly { get; init; }
 
-    [Required] public int TypeId { get; init; }
+    [Required] 
+    public int TypeId { get; init; }
 
-    [ForeignKey("TypeId")]
-    [Required]
-    public PaymentTermsType PaymentTermsType { get; init; } = default(PaymentTermsType)!;
+    [ForeignKey("TypeId"), Required]
+    public virtual PaymentTermsType PaymentTermsType { get; init; } = default(PaymentTermsType)!;
 }

@@ -11,11 +11,11 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class Account
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
     public int? TypeId { get; init; }
 
-    [ForeignKey("TypeId")] public AccountType? AccountType { get; init; }
+    [ForeignKey("TypeId")] 
+    public virtual AccountType? AccountType { get; init; }
 }

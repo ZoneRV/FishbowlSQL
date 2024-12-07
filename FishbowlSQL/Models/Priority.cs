@@ -11,9 +11,9 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class Priority
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
-    [StringLength(30)] [Required] public string Name { get; init; }
+    [StringLength(30), Required] 
+    public string Name { get; init; }
 }

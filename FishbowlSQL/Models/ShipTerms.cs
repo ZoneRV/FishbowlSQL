@@ -11,13 +11,15 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class ShipTerms
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
-    [Required] public bool ActiveFlag { get; init; }
+    [Required] 
+    public bool ActiveFlag { get; init; }
 
-    [StringLength(30)] [Required] public string Name { get; init; }
+    [StringLength(30), Required] 
+    public string Name { get; init; }
 
-    [Required] public bool ReadOnly { get; init; }
+    [Required] 
+    public bool ReadOnly { get; init; }
 }

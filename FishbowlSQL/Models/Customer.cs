@@ -11,17 +11,20 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class Customer
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
-    [Required] public int AccountId { get; init; }
+    [Required] 
+    public int AccountId { get; init; }
 
-    [StringLength(30)] public string? AccountingHash { get; init; }
+    [StringLength(30)] 
+    public string? AccountingHash { get; init; }
 
-    [StringLength(36)] public string? AccountingId { get; init; }
+    [StringLength(36)] 
+    public string? AccountingId { get; init; }
 
-    [Required] public bool ActiveFlag { get; init; }
+    [Required] 
+    public bool ActiveFlag { get; init; }
 
     public int? CarrierServiceId { get; init; }
 
@@ -37,71 +40,87 @@ public class Customer
 
     public int? DefaultCarrierId { get; init; }
 
-    [Required] public int DefaultPaymentTermsId { get; init; }
+    [Required] 
+    public int DefaultPaymentTermsId { get; init; }
 
     public int? DefaultPriorityId { get; init; }
 
     public int? DefaultSalesmanId { get; init; }
 
-    [Required] public int DefaultShipTermsId { get; init; }
+    [Required] 
+    public int DefaultShipTermsId { get; init; }
 
     public int? JobDepth { get; init; }
 
-    [StringLength(100)] public string? LastChangedUser { get; init; }
+    [StringLength(100)] 
+    public string? LastChangedUser { get; init; }
 
-    [StringLength(41)] [Required] public string Name { get; init; }
+    [StringLength(41), Required] 
+    public string Name { get; init; }
 
-    [StringLength(256)] public string? Note { get; init; }
+    [StringLength(256)] 
+    public string? Note { get; init; }
 
-    [StringLength(30)] [Required] public string Number { get; init; }
+    [StringLength(30), Required] 
+    public string Number { get; init; }
 
     public int? ParentId { get; init; }
 
     public int? QbClassId { get; init; }
 
-    [Required] public int StatusId { get; init; }
+    [Required] 
+    public int StatusId { get; init; }
 
     public int? SysUserId { get; init; }
 
-    [Required] public bool TaxExempt { get; init; }
+    [Required] 
+    public bool TaxExempt { get; init; }
 
-    [StringLength(30)] public string? TaxExemptNumber { get; init; }
+    [StringLength(30)] 
+    public string? TaxExemptNumber { get; init; }
 
     public int? TaxRateId { get; init; }
 
-    [Required] public bool ToBeEmailed { get; init; }
+    [Required] 
+    public bool ToBeEmailed { get; init; }
 
-    [Required] public bool ToBePrinted { get; init; }
+    [Required] 
+    public bool ToBePrinted { get; init; }
 
-    [StringLength(256)] public string? Url { get; init; }
+    [StringLength(256)] 
+    public string? Url { get; init; }
 
     public int? IssuableStatusId { get; init; }
 
     public string? CustomFields { get; init; } //TODO: Parse json
 
-    [ForeignKey("accountId")] [Required] public Account Account { get; init; } = default(Account)!;
+    [ForeignKey("accountId"), Required] 
+    public virtual Account Account { get; init; } = default(Account)!;
 
-    [ForeignKey("carrierServiceId")] public CarrierService? CarrierService { get; init; }
+    [ForeignKey("carrierServiceId")] 
+    public virtual CarrierService? CarrierService { get; init; }
 
-    [ForeignKey("currencyId")] public Currency? Currency { get; init; }
+    [ForeignKey("currencyId")] 
+    public virtual Currency? Currency { get; init; }
 
-    [ForeignKey("DefaultCarrierId")] public Carrier? DefaultCarrier { get; init; }
+    [ForeignKey("DefaultCarrierId")] 
+    public virtual Carrier? DefaultCarrier { get; init; }
 
-    [ForeignKey("DefaultPaymentTermsId")]
-    [Required]
-    public PaymentTerms DefaultPaymentTerms { get; init; } = default(PaymentTerms)!;
+    [ForeignKey("DefaultPaymentTermsId"), Required]
+    public virtual PaymentTerms DefaultPaymentTerms { get; init; } = default(PaymentTerms)!;
 
-    [ForeignKey("defaultPriorityId")]
-    [Required]
-    public Priority DefaultPriority { get; init; } = default(Priority)!;
+    [ForeignKey("defaultPriorityId"), Required]
+    public virtual Priority DefaultPriority { get; init; } = default(Priority)!;
 
-    [ForeignKey("parentId")] public Customer? Parent { get; init; }
+    [ForeignKey("parentId")] 
+    public virtual Customer? Parent { get; init; }
 
-    [ForeignKey("qbClassId")] public QbClass? QBClass { get; init; }
+    [ForeignKey("qbClassId")] 
+    public virtual QbClass? QBClass { get; init; }
 
-    [ForeignKey("DefaultShipTermsId")]
-    [Required]
-    public ShipTerms DefaultShipTerms { get; init; } = default(ShipTerms)!;
+    [ForeignKey("DefaultShipTermsId"), Required]
+    public virtual ShipTerms DefaultShipTerms { get; init; } = default(ShipTerms)!;
 
-    [ForeignKey("IssuableStatusId")] public IssuableStatus? IssuableStatus { get; init; }
+    [ForeignKey("IssuableStatusId")] 
+    public virtual IssuableStatus? IssuableStatus { get; init; }
 }

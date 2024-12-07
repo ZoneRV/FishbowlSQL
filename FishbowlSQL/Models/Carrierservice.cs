@@ -11,19 +11,24 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class CarrierService
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
-    [Required] public bool ActiveFlag { get; init; }
+    [Required] 
+    public bool ActiveFlag { get; init; }
 
-    [Required] public int CarrierId { get; init; }
+    [Required] 
+    public int CarrierId { get; init; }
 
-    [StringLength(255)] [Required] public string Code { get; init; } = default(string)!;
+    [StringLength(255), Required] 
+    public string Code { get; init; } = default(string)!;
 
-    [StringLength(255)] [Required] public string Name { get; init; } = default(string)!;
+    [StringLength(255), Required] 
+    public string Name { get; init; } = default(string)!;
 
-    [Required] public bool ReadOnly { get; init; }
+    [Required] 
+    public bool ReadOnly { get; init; }
 
-    [ForeignKey("CarrierId")] [Required] public Carrier Carrier { get; init; }
+    [ForeignKey("CarrierId"), Required] 
+    public virtual Carrier Carrier { get; init; }
 }

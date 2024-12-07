@@ -11,13 +11,13 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class Currency
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
     public bool? ActiveFlag { get; init; }
 
-    [StringLength(3)] public string? Code { get; init; }
+    [StringLength(3)] 
+    public string? Code { get; init; }
 
     public DateTimeOffset? DateCreated { get; init; }
 
@@ -27,15 +27,16 @@ public class Currency
 
     public bool? HomeCurrency { get; init; }
 
-    [Required] public int LastChangedUserId { get; init; }
+    [Required] 
+    public int LastChangedUserId { get; init; }
 
-    [StringLength(255)] public string? Name { get; init; }
+    [StringLength(255)] 
+    public string? Name { get; init; }
 
     public double? Rate { get; init; }
 
     public int? Symbol { get; init; }
 
-    [ForeignKey("LastChangedUserId")]
-    [Required]
-    public SysUser LastChangedUser { get; init; } = default(SysUser)!;
+    [ForeignKey("LastChangedUserId"), Required]
+    public virtual SysUser LastChangedUser { get; init; } = default(SysUser)!;
 }

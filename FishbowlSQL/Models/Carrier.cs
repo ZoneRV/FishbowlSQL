@@ -11,17 +11,19 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class Carrier
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
     public bool? ActiveFlag { get; init; }
 
-    [StringLength(256)] public string? Description { get; init; }
+    [StringLength(256)] 
+    public string? Description { get; init; }
 
-    [StringLength(60)] public string? Name { get; init; }
+    [StringLength(60)] 
+    public string? Name { get; init; }
 
     public bool? ReadOnly { get; init; }
 
-    [StringLength(4)] public string? Scac { get; init; }
+    [StringLength(4)] 
+    public string? Scac { get; init; }
 }

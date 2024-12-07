@@ -11,9 +11,9 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class AccountType
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
-    [Required] public string Name { get; init; }
+    [StringLength(15), Required] 
+    public string Name { get; init; }
 }

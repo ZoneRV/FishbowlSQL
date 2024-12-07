@@ -69,26 +69,26 @@ namespace FishbowlSQL.Models;
         public string? CustomFields { get; init; } // TODO: You might want to parse this JSON in your application
 
         [ForeignKey("accountId"), Required]
-        public Account Account { get; init; }
+        public virtual Account Account { get; init; }
         
         [ForeignKey("defaultCarrierId"), Required]
-        public Carrier Carrier { get; init; }
+        public virtual Carrier Carrier { get; init; }
         
         [ForeignKey("currencyId")]
-        public Currency? Currency { get; init; }
+        public virtual Currency? Currency { get; init; }
         
         [ForeignKey("defaultPaymentTermsId"), Required]
-        public PaymentTerms PaymentTerms { get; init; }
+        public virtual PaymentTerms PaymentTerms { get; init; }
         
         [ForeignKey("defaultShipTermsId"), Required]
-        public ShipTerms ShipTerms { get; init; }
+        public virtual ShipTerms ShipTerms { get; init; }
         
         [ForeignKey("statusId"), Required]
-        public VendorStatus VendorStatus { get; init; }
+        public virtual VendorStatus VendorStatus { get; init; }
         
         [ForeignKey("taxRateId")]
-        public TaxRate? TaxRate { get; init; }
+        public virtual TaxRate? TaxRate { get; init; }
         
         [ForeignKey("defaultCarrierServiceId")]
-        public CarrierService? CarrierService { get; init; }
+        public virtual CarrierService? CarrierService { get; init; }
     }
