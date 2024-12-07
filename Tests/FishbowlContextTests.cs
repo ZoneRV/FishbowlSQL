@@ -128,6 +128,57 @@ public class FishbowlContextTests : IDisposable
     }
     
     [Test]
+    public void LoadBomItem()
+    {
+        var results = _fishbowlContext.BomItem
+            .Include(e => e.Bom)
+            .Include(e => e.BomItemGroup)
+            .Include(e => e.Part)
+            .Include(e => e.Type)
+            .Include(e => e.Uom)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadBomItemGroup()
+    {
+        var results = _fishbowlContext.BomItemGroup
+            .Include(e => e.Bom)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadBomItemType()
+    {
+        var results = _fishbowlContext.BomItemType
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
     public void LoadCalCategory()
     {
         var results = _fishbowlContext.CalCategory
@@ -161,7 +212,7 @@ public class FishbowlContextTests : IDisposable
     [Test]
     public void LoadCarrierService()
     {
-        var results = _fishbowlContext.Carrierservice
+        var results = _fishbowlContext.CarrierService
             .Include(e => e.Carrier)
             .Take(10)
             .ToList();
@@ -229,6 +280,21 @@ public class FishbowlContextTests : IDisposable
             Utils.AssertRequiredProperties(result);
         }
     }
+    
+    [Test]
+    public void LoadFobPoint()
+    {
+        var results = _fishbowlContext.FobPoint
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
 
     [Test]
     public void LoadIssuableStatus()
@@ -246,9 +312,168 @@ public class FishbowlContextTests : IDisposable
     }
     
     [Test]
+    public void LoadItemAdjust()
+    {
+        var results = _fishbowlContext.ItemAdjust
+            .Include(e => e.ExpenseAsAccount)
+            .Include(e => e.IncomeAsAccount)
+            .Include(e => e.TaxRate)
+            .Include(e => e.Type)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadItemAdjustType()
+    {
+        var results = _fishbowlContext.ItemAdjustType
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
     public void LoadKitDisplayType()
     {
         var results = _fishbowlContext.KitDisplayType
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadLocation()
+    {
+        var results = _fishbowlContext.Location
+            .Include(e => e.DefaultCustomer)
+            .Include(e => e.DefaultVendor)
+            .Include(e => e.LocationGroup)
+            .Include(e => e.Type)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadLocationGroup()
+    {
+        var results = _fishbowlContext.LocationGroup
+            .Include(e => e.QbClass)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadLocationType()
+    {
+        var results = _fishbowlContext.LocationType
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadMo()
+    {
+        var results = _fishbowlContext.Mo
+            .Include(e => e.LocationGroup)
+            .Include(e => e.QbClass)
+            .Include(e => e.So)
+            .Include(e => e.Status)
+            .Include(e => e.User)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadMoItem()
+    {
+        var results = _fishbowlContext.MoItem
+            .Include(e => e.Parent)
+            .Include(e => e.BomItem)
+            .Include(e => e.Type)
+            .Include(e => e.Bom)
+            .Include(e => e.QbClass)
+            .Include(e => e.Part)
+            .Include(e => e.Mo)
+            .Include(e => e.SoItem)
+            .Include(e => e.Uom)
+            .Include(e => e.Priority)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadMoItemStatus()
+    {
+        var results = _fishbowlContext.MoItemStatus
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadMoStatus()
+    {
+        var results = _fishbowlContext.MoStatus
             .Take(10)
             .ToList();
         
@@ -436,9 +661,93 @@ public class FishbowlContextTests : IDisposable
     }
     
     [Test]
+    public void LoadSo()
+    {
+        var results = _fishbowlContext.So
+            .Include(e => e.Carrier)
+            .Include(e => e.CarrierService)
+            .Include(e => e.Currency)
+            .Include(e => e.Customer)
+            .Include(e => e.FobPoint)
+            .Include(e => e.LocationGroup)
+            .Include(e => e.PaymentTerms)
+            .Include(e => e.Priority)
+            .Include(e => e.QbClass)
+            .Include(e => e.ShipTerms)
+            .Include(e => e.Status)
+            .Include(e => e.SalesmanUser)
+            .Include(e => e.TaxRateTable)
+            .Include(e => e.Type)
+            .Include(e => e.CalCategory)
+            .Include(e => e.CreatedByUser)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadSoItem()
+    {
+        var results = _fishbowlContext.SoItem
+            .Include(e => e.ItemAdjust)
+            .Include(e => e.Product)
+            .Include(e => e.QbClass)
+            .Include(e => e.So)
+            .Include(e => e.Status)
+            .Include(e => e.Tax)
+            .Include(e => e.Type)
+            .Include(e => e.Uom)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
     public void LoadSoItemType()
     {
         var results = _fishbowlContext.SoItemType
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadSoItemStatus()
+    {
+        var results = _fishbowlContext.SoItemStatus
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+    
+    [Test]
+    public void LoadSoType()
+    {
+        var results = _fishbowlContext.SoType
             .Take(10)
             .ToList();
         
@@ -557,6 +866,44 @@ public class FishbowlContextTests : IDisposable
     public void LoadVendorStatus()
     {
         var results = _fishbowlContext.VendorStatus
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+
+    [Test]
+    public void LoadWorkOrder()
+    {
+        var results = _fishbowlContext.Wo
+            .Include(e => e.CalCategory)
+            .Include(e => e.Customer)
+            .Include(e => e.Location)
+            .Include(e => e.MoItem)
+            .Include(e => e.Priority)
+            .Include(e => e.QbClass)
+            .Include(e => e.WoStatus)
+            .Include(e => e.User)
+            .Take(10)
+            .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+
+    [Test]
+    public void LoadWorkOrderStatus()
+    {
+        var results = _fishbowlContext.WoStatus
             .Take(10)
             .ToList();
         

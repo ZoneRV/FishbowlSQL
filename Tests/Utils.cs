@@ -19,9 +19,10 @@ public static class Utils
         
         foreach (PropertyInfo propertyInfo in properties)
         {
-            // If a property should not be null assert that to be true
-            if (Attribute.IsDefined(propertyInfo,
-                                    typeof(RequiredAttribute)))
+            bool isRequired = Attribute.IsDefined(propertyInfo, typeof(RequiredAttribute)) || Attribute.IsDefined(propertyInfo, typeof(KeyAttribute));
+            //bool isNotNullable = System.Nullable.GetUnderlyingType(propertyInfo.PropertyType) != null;
+            
+            if ( isRequired )
             {
                 Assert.True(propertyInfo.GetValue(obj) is not null);
             }
