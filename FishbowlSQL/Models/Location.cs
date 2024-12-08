@@ -15,7 +15,7 @@ namespace FishbowlSQL.Models;
 public class Location
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; init; }
+    public ulong Id { get; init; }
     
     [Required]
     public bool ActiveFlag { get; init; }
@@ -57,12 +57,12 @@ public class Location
     
     // TODO: Implement manual handling for the CustomFields as it's a JSON type
     [Column(TypeName="json")]
-    public string CustomFields { get; init; }
+    public string? CustomFields { get; init; }
         
     // Navigation properties
     
-    [ForeignKey("defaultCustomerId"), Required]
-    public virtual Customer DefaultCustomer { get; init; }
+    [ForeignKey("defaultCustomerId")]
+    public virtual Customer? DefaultCustomer { get; init; }
     
     [ForeignKey("defaultVendorId")]
     public virtual Vendor? DefaultVendor { get; init; }

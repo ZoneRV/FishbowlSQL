@@ -43,7 +43,7 @@ public class WorkOrder
     [Required]
     public int MoItemId { get; init; }
     
-    public string Note { get; init; }
+    public string? Note { get; init; }
     
     [Required]
     [StringLength(30)]

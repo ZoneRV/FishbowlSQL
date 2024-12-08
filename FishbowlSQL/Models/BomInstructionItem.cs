@@ -31,7 +31,7 @@ public class BomInstructionItem
     public int SortOrder { get; set; }
 
     [MaxLength(256)]
-    public string Url { get; set; }
+    public string? Url { get; set; }
 
     // TODO: Implement manual handling for the CustomFields as it's a JSON type
     [Column(TypeName="json")]

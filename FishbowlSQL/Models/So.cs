@@ -93,7 +93,7 @@ public class So
     public string Num { get; init; }
     
     [StringLength(256)]
-    public string PaymentLink { get; init; }
+    public string? PaymentLink { get; init; }
     
     [Required]
     public int PaymentTermsId { get; init; }
@@ -183,10 +183,10 @@ public class So
     [Column(TypeName="json")]
     public string? CustomFields { get; init; }
 
-    [ForeignKey("carrierServiceId")]
+    [ForeignKey("carrierId")]
     public virtual Carrier? Carrier { get; init; }
 
-    [ForeignKey("carrierId"), Required]
+    [ForeignKey("carrierServiceId"), Required]
     public virtual CarrierService CarrierService { get; init; }
 
     [ForeignKey("currencyId")]
@@ -229,5 +229,5 @@ public class So
     public virtual CalCategory? CalCategory { get; init; }
 
     [ForeignKey("createdByUserId")]
-    public virtual SysUser CreatedByUser { get; init; }
+    public virtual SysUser? CreatedByUser { get; init; }
 }

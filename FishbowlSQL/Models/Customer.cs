@@ -100,7 +100,7 @@ public class Customer
     public string? CustomFields { get; init; }
 
     [ForeignKey("accountId"), Required] 
-    public virtual Account Account { get; init; } = default(Account)!;
+    public virtual Account Account { get; init; }
 
     [ForeignKey("carrierServiceId")] 
     public virtual CarrierService? CarrierService { get; init; }
@@ -112,10 +112,10 @@ public class Customer
     public virtual Carrier? DefaultCarrier { get; init; }
 
     [ForeignKey("DefaultPaymentTermsId"), Required]
-    public virtual PaymentTerms DefaultPaymentTerms { get; init; } = default(PaymentTerms)!;
+    public virtual PaymentTerms DefaultPaymentTerms { get; init; }
 
-    [ForeignKey("defaultPriorityId"), Required]
-    public virtual Priority DefaultPriority { get; init; } = default(Priority)!;
+    [ForeignKey("defaultPriorityId")]
+    public virtual Priority? DefaultPriority { get; init; } 
 
     [ForeignKey("parentId")] 
     public virtual Customer? Parent { get; init; }
@@ -124,7 +124,7 @@ public class Customer
     public virtual QbClass? QBClass { get; init; }
 
     [ForeignKey("DefaultShipTermsId"), Required]
-    public virtual ShipTerms DefaultShipTerms { get; init; } = default(ShipTerms)!;
+    public virtual ShipTerms DefaultShipTerms { get; init; }
 
     [ForeignKey("IssuableStatusId")] 
     public virtual IssuableStatus? IssuableStatus { get; init; }
