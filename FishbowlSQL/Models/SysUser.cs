@@ -37,11 +37,15 @@ public class SysUser
 
     public DateTimeOffset? PasswordLastModified { get; init; }
 
+    /*
+    For the newer DB Schema
+     
     [StringLength(64), Required] 
     public string MfaSecret { get; init; }
 
     [Required] 
     public int MfaBypassCounter { get; init; }
+    */
 
     // TODO: Implement manual handling for the CustomFields as it's a JSON type
     [Column(TypeName="json")]
