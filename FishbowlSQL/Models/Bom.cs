@@ -6,6 +6,9 @@ namespace FishbowlSQL.Models;
 /// <summary>
 ///     See <a href="https://github.com/ZoneRV/FishbowlSQL/blob/master/FishbowlSQL/SQL%20files/bom.sql">Link</a> for
 ///     SQL script.
+///     <br/>
+///     See <a href="https://fishbowlhelp.com/files/database/tables/bom.html">Link</a> for
+///     official Fishbowl documentation.
 /// </summary>
 public class Bom
 {

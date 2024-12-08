@@ -9,6 +9,9 @@ namespace FishbowlSQL.Models;
 ///     See
 ///     <a href="https://github.com/ZoneRV/FishbowlSQL/blob/master/FishbowlSQL/SQL%20files/paymenttermstype.sql">Link</a>
 ///     for SQL script.
+///     <br/>
+///     See <a href="https://fishbowlhelp.com/files/database/tables/paymenttermstype.html">Link</a> for
+///     official Fishbowl documentation.
 /// </summary>
 public class PaymentTermsType
 {

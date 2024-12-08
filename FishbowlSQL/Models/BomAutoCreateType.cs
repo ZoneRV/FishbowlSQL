@@ -8,6 +8,9 @@ namespace FishbowlSQL.Models;
 /// <summary>
 ///     See <a href="https://github.com/ZoneRV/FishbowlSQL/blob/master/FishbowlSQL/SQL%20files/bomautocreatetype.sql">Link</a> for
 ///     SQL script.
+///     <br/>
+///     See <a href="https://fishbowlhelp.com/files/database/tables/bomautocreatetype.html">Link</a> for
+///     official Fishbowl documentation.
 /// </summary>
 public class BomAutoCreateType
 {

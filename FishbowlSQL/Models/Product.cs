@@ -8,6 +8,9 @@ namespace FishbowlSQL.Models;
 /// <summary>
 ///     See <a href="https://github.com/ZoneRV/FishbowlSQL/blob/master/FishbowlSQL/SQL%20files/product.sql">Link</a> for
 ///     SQL script.
+///     <br/>
+///     See <a href="https://fishbowlhelp.com/files/database/tables/product.html">Link</a> for
+///     official Fishbowl documentation.
 /// </summary>
 public class Product
 {
