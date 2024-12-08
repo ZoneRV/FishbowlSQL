@@ -4,6 +4,7 @@ about: Template for tracking entity table progress
 title: ''
 labels: enhancement
 assignees: ''
+project: 'Fishbowl SQL Library'
 
 ---
 
