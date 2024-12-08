@@ -17,6 +17,7 @@ public class FishbowlContext(string connectionString) : DbContext
     public DbSet<AsAccountType> AsAccountType { get; set; }
     public DbSet<Bom> Bom { get; set; }
     public DbSet<BomAutoCreateType> BomAutoCreateType { get; set; }
+    public DbSet<BomInstructionItem> BomInstructionItem { get; set; }
     public DbSet<BomItem> BomItem { get; set; }
     public DbSet<BomItemGroup> BomItemGroup { get; set; }
     public DbSet<BomItemType> BomItemType { get; set; }
@@ -63,6 +64,7 @@ public class FishbowlContext(string connectionString) : DbContext
     public DbSet<Vendor> Vendor { get; set; }
     public DbSet<VendorStatus> VendorStatus { get; set; }
     public DbSet<WorkOrder> Wo { get; set; }
+    public DbSet<WorkOrderInstruction> WoInstruction { get; set; }
     public DbSet<WorkOrderStatus> WoStatus { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

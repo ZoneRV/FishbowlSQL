@@ -80,6 +80,12 @@ public class FishbowlContextTests : IDisposable
     }
     
     [Test]
+    public void BomInstructionItem()
+    {
+        _fishbowlContext.BomInstructionItem.RunFullTest();
+    }
+    
+    [Test]
     public void BomItem()
     {
         _fishbowlContext.BomItem.RunFullTest();
@@ -347,6 +353,12 @@ public class FishbowlContextTests : IDisposable
     public void Wo()
     {
         _fishbowlContext.Wo.RunFullTest();
+    }
+
+    [Test]
+    public void WoInstruction()
+    {
+        _fishbowlContext.WoInstruction.RunFullTest();
     }
 
     [Test]
