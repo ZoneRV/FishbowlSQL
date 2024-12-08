@@ -32,924 +32,320 @@ public class FishbowlContextTests : IDisposable
     }
 
     [Test]
-    public void LoadAccount()
+    public void Account()
     {
-        var results = _fishbowlContext.Account
-                                     .Include(e => e.AccountType)
-                                     .Include(e => e.AccountGroups)
-                                     .Include(e => e.Vendors)
-                                     .Include(e => e.Customers)
-                                     .Take(10)
-                                     .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Account.RunFullTest();
     }
 
     [Test]
-    public void LoadAccountGroup()
+    public void AccountGroup()
     {
-        var results = _fishbowlContext.AccountGroup
-            .Include(e => e.Accounts)
-             .Take(10)
-             .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.AccountGroup.RunFullTest();
     }
 
     [Test]
-    public void LoadAccountGroupRelation()
+    public void AccountGroupRelation()
     {
-        var results = _fishbowlContext.AccountGroupRelation
-            .Include(e => e.Account)
-            .Include(e => e.AccountGroup)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.AccountGroupRelation.RunFullTest();
     }
     
     [Test]
-    public void LoadAccountType()
+    public void AccountType()
     {
-        var results = _fishbowlContext.AccountType
-            .Take(10)
-                                     .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.AccountType.RunFullTest();
     }
 
     [Test]
-    public void LoadAsAccount()
+    public void AsAccount()
     {
-        var results = _fishbowlContext.AsAccount
-                                     .Include(e => e.AsAccountType)
-                                     .Take(10)
-                                     .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.AsAccount.RunFullTest();
     }
     
     [Test]
-    public void LoadAsAccountType()
+    public void AsAccountType()
     {
-        var results = _fishbowlContext.AsAccountType
-            .Take(10)
-                                     .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.AsAccountType.RunFullTest();
     }
     
     [Test]
-    public void LoadBom()
+    public void Bom()
     {
-        var results = _fishbowlContext.Bom
-            .Include(e => e.AutoCreateType)
-            .Include(e => e.DefaultCalCategory)
-            .Include(e => e.QbClass)
-            .Include(e => e.User)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Bom.RunFullTest();
     }
     
     [Test]
-    public void LoadBomAutoCreateType()
+    public void BomAutoCreateType()
     {
-        var results = _fishbowlContext.BomAutoCreateType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.BomAutoCreateType.RunFullTest();
     }
     
     [Test]
-    public void LoadBomItem()
+    public void BomItem()
     {
-        var results = _fishbowlContext.BomItem
-            .Include(e => e.Bom)
-            .Include(e => e.BomItemGroup)
-            .Include(e => e.Part)
-            .Include(e => e.Type)
-            .Include(e => e.Uom)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.BomItem.RunFullTest();
     }
     
     [Test]
-    public void LoadBomItemGroup()
+    public void BomItemGroup()
     {
-        var results = _fishbowlContext.BomItemGroup
-            .Include(e => e.Bom)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.BomItemGroup.RunFullTest();
     }
     
     [Test]
-    public void LoadBomItemType()
+    public void BomItemType()
     {
-        var results = _fishbowlContext.BomItemType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.BomItemType.RunFullTest();
     }
     
     [Test]
-    public void LoadCalCategory()
+    public void CalCategory()
     {
-        var results = _fishbowlContext.CalCategory
-            .Include(e => e.LastChangedUser)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.CalCategory.RunFullTest();
     }
     
     [Test]
-    public void LoadCarrier()
+    public void Carrier()
     {
-        var results = _fishbowlContext.Carrier
-            .Take(10)
-                                     .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Carrier.RunFullTest();
     }
     
     [Test]
-    public void LoadCarrierService()
+    public void CarrierService()
     {
-        var results = _fishbowlContext.CarrierService
-            .Include(e => e.Carrier)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.CarrierService.RunFullTest();
     }
     
     [Test]
-    public void LoadCartonType()
+    public void CartonType()
     {
-        var results = _fishbowlContext.CartonType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.CartonType.RunFullTest();
     }
     
     [Test]
-    public void LoadCurrency()
+    public void Currency()
     {
-        var results = _fishbowlContext.Currency
-            .Include(e => e.LastChangedUser)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Currency.RunFullTest();
     }
 
     [Test]
-    public void LoadCustomer()
+    public void Customer()
     {
-        var results = _fishbowlContext.Customer
-            .Include(x => x.CarrierService)
-            .Include(x => x.Currency)
-            .Include(x => x.Account)
-            .Include(x => x.DefaultCarrier)
-            .Include(x => x.DefaultPaymentTerms)
-            .Include(x => x.DefaultPriority)
-            .Include(x => x.Parent)
-            .Include(x => x.QBClass)
-            .Include(x => x.DefaultShipTerms)
-            .Include(x => x.IssuableStatus)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Customer.RunFullTest();
     }
     
     [Test]
-    public void LoadFobPoint()
+    public void FobPoint()
     {
-        var results = _fishbowlContext.FobPoint
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.FobPoint.RunFullTest();
     }
 
     [Test]
-    public void LoadIssuableStatus()
+    public void IssuableStatus()
     {
-        var results = _fishbowlContext.IssuableStatus
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.IssuableStatus.RunFullTest();
     }
     
     [Test]
-    public void LoadItemAdjust()
+    public void ItemAdjust()
     {
-        var results = _fishbowlContext.ItemAdjust
-            .Include(e => e.ExpenseAsAccount)
-            .Include(e => e.IncomeAsAccount)
-            .Include(e => e.TaxRate)
-            .Include(e => e.Type)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.ItemAdjust.RunFullTest();
     }
     
     [Test]
-    public void LoadItemAdjustType()
+    public void ItemAdjustType()
     {
-        var results = _fishbowlContext.ItemAdjustType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.ItemAdjustType.RunFullTest();
     }
     
     [Test]
-    public void LoadKitDisplayType()
+    public void KitDisplayType()
     {
-        var results = _fishbowlContext.KitDisplayType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.KitDisplayType.RunFullTest();
     }
     
     [Test]
-    public void LoadLocation()
+    public void Location()
     {
-        var results = _fishbowlContext.Location
-            .Include(e => e.DefaultCustomer)
-            .Include(e => e.DefaultVendor)
-            .Include(e => e.LocationGroup)
-            .Include(e => e.Type)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Location.RunFullTest();
     }
     
     [Test]
-    public void LoadLocationGroup()
+    public void LocationGroup()
     {
-        var results = _fishbowlContext.LocationGroup
-            .Include(e => e.QbClass)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.LocationGroup.RunFullTest();
     }
     
     [Test]
-    public void LoadLocationType()
+    public void LocationType()
     {
-        var results = _fishbowlContext.LocationType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.LocationType.RunFullTest();
     }
     
     [Test]
-    public void LoadMo()
+    public void Mo()
     {
-        var results = _fishbowlContext.Mo
-            .Include(e => e.LocationGroup)
-            .Include(e => e.QbClass)
-            .Include(e => e.So)
-            .Include(e => e.Status)
-            .Include(e => e.User)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Mo.RunFullTest();
     }
     
     [Test]
-    public void LoadMoItem()
+    public void MoItem()
     {
-        var results = _fishbowlContext.MoItem
-            .Include(e => e.Parent)
-            .Include(e => e.BomItem)
-            .Include(e => e.Type)
-            .Include(e => e.Bom)
-            .Include(e => e.QbClass)
-            .Include(e => e.Part)
-            .Include(e => e.Mo)
-            .Include(e => e.SoItem)
-            .Include(e => e.Uom)
-            .Include(e => e.Priority)
-            .Include(e => e.Status)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.MoItem.RunFullTest();
     }
     
     [Test]
-    public void LoadMoItemStatus()
+    public void MoItemStatus()
     {
-        var results = _fishbowlContext.MoItemStatus
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.MoItemStatus.RunFullTest();
     }
     
     [Test]
-    public void LoadMoStatus()
+    public void MoStatus()
     {
-        var results = _fishbowlContext.MoStatus
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.MoStatus.RunFullTest();
     }
 
     [Test]
-    public void LoadOrderType()
+    public void OrderType()
     {
-        var results = _fishbowlContext.OrderType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.OrderType.RunFullTest();
     }
     
     [Test]
-    public void LoadPart()
+    public void Part()
     {
-        var results = _fishbowlContext.Part
-            .Include(e => e.AdjustmentAccount)
-            .Include(e => e.DefaultBom)
-            .Include(e => e.DefaultPoItemType)
-            .Include(e => e.CogsAccount)
-            .Include(e => e.DefaultProduct)
-            .Include(e => e.InventoryAccount)
-            .Include(e => e.ScrapAccount)
-            .Include(e => e.Type)
-            .Include(e => e.SizeUom)
-            .Include(e => e.Tax)
-            .Include(e => e.Uom)
-            .Include(e => e.VarianceAccount)
-            .Include(e => e.WeightUom)
-            .Include(e => e.DefaultOutsourcedReturnItem)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Part.RunFullTest();
     }
     
     [Test]
-    public void LoadPartType()
+    public void PartType()
     {
-        var results = _fishbowlContext.PartType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.PartType.RunFullTest();
     }
 
     [Test]
-    public void LoadPaymentTerms()
+    public void PaymentTerms()
     {
-        var results = _fishbowlContext.PaymentTerms
-            .Include(e => e.PaymentTermsType)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.PaymentTerms.RunFullTest();
     }
 
     [Test]
-    public void LoadPaymentTermsTypes()
+    public void PaymentTermsType()
     {
-        var results = _fishbowlContext.PaymentTermsType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.PaymentTermsType.RunFullTest();
     }
     
     [Test]
-    public void LoadPoItemType()
+    public void PoItemType()
     {
-        var results = _fishbowlContext.PoItemType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.PoItemType.RunFullTest();
     }
 
     [Test]
-    public void LoadPriority()
+    public void Priority()
     {
-        var results = _fishbowlContext.Priority
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Priority.RunFullTest();
     }
     
     [Test]
-    public void LoadProduct()
+    public void Product()
     {
-        var results = _fishbowlContext.Product
-            .Include(e => e.DefaultSoItemTypeNavigation)
-            .Include(e => e.DisplayType)
-            .Include(e => e.IncomeAccount)
-            .Include(e => e.Part)
-            .Include(e => e.QbClass)
-            .Include(e => e.Tax)
-            .Include(e => e.Uom)
-            .Include(e => e.SizeUom)
-            .Include(e => e.WeightUom)
-            .Include(e => e.DefaultCartonType)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Product.RunFullTest();
     }
 
     [Test]
-    public void LoadQbClass()
+    public void QbClass()
     {
-        var results = _fishbowlContext.QbClass
-            .Include(e => e.Parent)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.QbClass.RunFullTest();
     }
 
     [Test]
-    public void LoadShipTerms()
+    public void ShipTerms()
     {
-        var results = _fishbowlContext.ShipTerms
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.ShipTerms.RunFullTest();
     }
     
     [Test]
-    public void LoadSo()
+    public void So()
     {
-        var results = _fishbowlContext.So
-            .Include(e => e.Carrier)
-            .Include(e => e.CarrierService)
-            .Include(e => e.Currency)
-            .Include(e => e.Customer)
-            .Include(e => e.FobPoint)
-            .Include(e => e.LocationGroup)
-            .Include(e => e.PaymentTerms)
-            .Include(e => e.Priority)
-            .Include(e => e.QbClass)
-            .Include(e => e.ShipTerms)
-            .Include(e => e.Status)
-            .Include(e => e.SalesmanUser)
-            .Include(e => e.TaxRateTable)
-            .Include(e => e.Type)
-            .Include(e => e.CalCategory)
-            .Include(e => e.CreatedByUser)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.So.RunFullTest();
     }
     
     [Test]
-    public void LoadSoItem()
+    public void SoItem()
     {
-        var results = _fishbowlContext.SoItem
-            .Include(e => e.ItemAdjust)
-            .Include(e => e.Product)
-            .Include(e => e.QbClass)
-            .Include(e => e.So)
-            .Include(e => e.Status)
-            .Include(e => e.Tax)
-            .Include(e => e.Type)
-            .Include(e => e.Uom)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.SoItem.RunFullTest();
     }
     
     [Test]
-    public void LoadSoItemType()
+    public void SoItemType()
     {
-        var results = _fishbowlContext.SoItemType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+         _fishbowlContext.SoItemType.RunFullTest();
     }
     
     [Test]
-    public void LoadSoItemStatus()
+    public void SoItemStatus()
     {
-        var results = _fishbowlContext.SoItemStatus
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.SoItemStatus.RunFullTest();
     }
     
     [Test]
-    public void LoadSoType()
+    public void SoType()
     {
-        var results = _fishbowlContext.SoType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.SoType.RunFullTest();
     }
 
     [Test]
-    public void LoadSysUser()
+    public void SysUser()
     {
-        var results = _fishbowlContext.SysUser
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.SysUser.RunFullTest();
     }
 
     [Test]
-    public void LoadTaxRate()
+    public void TaxRate()
     {
-        var results = _fishbowlContext.TaxRate
-            .Include(e => e.OrderType)
-            .Include(e => e.TaxAccount)
-            .Include(e => e.Vendor)
-            .Include(e => e.TaxRateType)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.TaxRate.RunFullTest();
     }
 
     [Test]
-    public void LoadTaxRateType()
+    public void TaxRateType()
     {
-        var results = _fishbowlContext.TaxRateType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.TaxRateType.RunFullTest();
     }
     
     [Test]
-    public void LoadUom()
+    public void Uom()
     {
-        var results = _fishbowlContext.Uom
-            .Include(e => e.UomTypeNavigation)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Uom.RunFullTest();
     }
     
     [Test]
-    public void LoadUomType()
+    public void UomType()
     {
-        var results = _fishbowlContext.UomType
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.UomType.RunFullTest();
     }
 
     [Test]
-    public void LoadVendor()
+    public void Vendor()
     {
-        var results = _fishbowlContext.Vendor
-            .Include(e => e.Account)
-            .Include(e => e.Carrier)
-            .Include(e => e.Currency)
-            .Include(e => e.PaymentTerms)
-            .Include(e => e.ShipTerms)
-            .Include(e => e.VendorStatus)
-            .Include(e => e.TaxRate)
-            .Include(e => e.CarrierService)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Vendor.RunFullTest();
     }
 
     [Test]
-    public void LoadVendorStatus()
+    public void VendorStatus()
     {
-        var results = _fishbowlContext.VendorStatus
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.VendorStatus.RunFullTest();
     }
 
     [Test]
-    public void LoadWorkOrder()
+    public void Wo()
     {
-        var results = _fishbowlContext.Wo
-            .Include(e => e.CalCategory)
-            .Include(e => e.Customer)
-            .Include(e => e.Location)
-            .Include(e => e.MoItem)
-            .Include(e => e.Priority)
-            .Include(e => e.QbClass)
-            .Include(e => e.WoStatus)
-            .Include(e => e.User)
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.Wo.RunFullTest();
     }
 
     [Test]
-    public void LoadWorkOrderStatus()
+    public void WoStatus()
     {
-        var results = _fishbowlContext.WoStatus
-            .Take(10)
-            .ToList();
-        
-        Assert.NotZero(results.Count);
-
-        foreach (var result in results)
-        {
-            Utils.AssertRequiredProperties(result);
-        }
+        _fishbowlContext.WoStatus.RunFullTest();
     }
 }
