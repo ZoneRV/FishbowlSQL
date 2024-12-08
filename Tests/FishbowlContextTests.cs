@@ -113,7 +113,7 @@ public class FishbowlContextTests : IDisposable
     }
     
     [Test]
-    public void LoadBomAutoCreatType()
+    public void LoadBomAutoCreateType()
     {
         var results = _fishbowlContext.BomAutoCreateType
             .Take(10)
@@ -444,6 +444,7 @@ public class FishbowlContextTests : IDisposable
             .Include(e => e.SoItem)
             .Include(e => e.Uom)
             .Include(e => e.Priority)
+            .Include(e => e.Status)
             .Take(10)
             .ToList();
         
@@ -510,6 +511,7 @@ public class FishbowlContextTests : IDisposable
             .Include(e => e.CogsAccount)
             .Include(e => e.DefaultProduct)
             .Include(e => e.InventoryAccount)
+            .Include(e => e.ScrapAccount)
             .Include(e => e.Type)
             .Include(e => e.SizeUom)
             .Include(e => e.Tax)

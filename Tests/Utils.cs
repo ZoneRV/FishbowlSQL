@@ -24,7 +24,7 @@ public static class Utils
             
             if ( isRequired )
             {
-                Assert.True(propertyInfo.GetValue(obj) is not null);
+                Assert.True(propertyInfo.GetValue(obj) is not null, $"{propertyInfo.Name} should not be null on {type.Name}");
             }
             
             else if (Attribute.IsDefined(propertyInfo, typeof(ForeignKeyAttribute)))
@@ -37,7 +37,7 @@ public static class Utils
 
                 if (idPropertyInfo is not null && idPropertyInfo.GetValue(obj) is not null)
                 {
-                    Assert.True(propertyInfo.GetValue(obj) is not null);
+                    Assert.True(propertyInfo.GetValue(obj) is not null, $"{idPropertyInfo.Name} has a value so {propertyInfo.Name} should not be null on {type.Name}");
                 }
             }
         }
