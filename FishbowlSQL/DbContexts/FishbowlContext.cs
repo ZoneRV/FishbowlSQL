@@ -1,4 +1,5 @@
-﻿using FishbowlSQL.Models;
+﻿using System.Reflection;
+using FishbowlSQL.Models;
 using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
 
@@ -19,6 +20,7 @@ public class FishbowlContext(string connectionString) : DbContext
     public DbSet<BomItem> BomItem { get; set; }
     public DbSet<BomItemGroup> BomItemGroup { get; set; }
     public DbSet<BomItemType> BomItemType { get; set; }
+    public DbSet<BomToLocation> BomToLocation { get; set; }
     public DbSet<CalCategory> CalCategory { get; set; }
     public DbSet<Carrier> Carrier { get; set; }
     public DbSet<CarrierService> CarrierService { get; set; }
@@ -72,6 +74,7 @@ public class FishbowlContext(string connectionString) : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         Models.Account.BuildModel(modelBuilder);
+        Models.Bom.BuildModel(modelBuilder);
         
         base.OnModelCreating(modelBuilder);
     }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace FishbowlSQL.Models;
 
@@ -10,7 +11,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/bom.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class Bom
+public class Bom : IBaseEntity
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -76,4 +77,49 @@ public class Bom
     
     [ForeignKey("userId"), Required]
     public virtual SysUser User { get; init; }
+    
+    //public virtual ICollection<BomInstructionItem> BomInstructionItems { get; set; }
+    //public virtual ICollection<BomInstructionItemAudit> BomInstructionItemAudits { get; set; } 
+    public virtual ICollection<BomItem> BomItems { get; set; }
+    //public virtual ICollection<BomItemAudit> BomItemAudits { get; set; }
+    public virtual ICollection<BomItemGroup> BomItemGroups { get; set; }
+    //public virtual ICollection<BomItemGroupAudit> BomItemGroupAudits { get; set; }
+    public virtual ICollection<BomToLocation> BomToLocations { get; set; } 
+    //public virtual ICollection<BomToLocationAudit> BomToLocationAudits { get; set; } 
+    public virtual ICollection<MoItem> MoItems { get; set; }
+    //public virtual ICollection<MoItemAudit> MoItemAudits { get; set; }
+    public virtual ICollection<Part> DefaultedParts { get; set; }
+    
+    public static void BuildModel(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Bom>()
+            .HasMany(b => b.BomItems)
+            .WithOne(bi => bi.Bom)
+            .HasForeignKey(f => f.BomId)
+            .HasPrincipalKey(b => b.Id);
+        
+        modelBuilder.Entity<Bom>()
+            .HasMany(b => b.BomItemGroups)
+            .WithOne(big => big.Bom)
+            .HasForeignKey(f => f.BomId)
+            .HasPrincipalKey(b => b.Id);
+        
+        modelBuilder.Entity<Bom>()
+            .HasMany(b => b.BomToLocations)
+            .WithOne(bl => bl.Bom)
+            .HasForeignKey(f => f.BomId)
+            .HasPrincipalKey(b => b.Id);
+        
+        modelBuilder.Entity<Bom>()
+            .HasMany(b => b.MoItems)
+            .WithOne(mi => mi.Bom)
+            .HasForeignKey(f => f.BomId)
+            .HasPrincipalKey(b => b.Id);
+        
+        modelBuilder.Entity<Bom>()
+            .HasMany(b => b.DefaultedParts)
+            .WithOne(mi => mi.DefaultBom)
+            .HasForeignKey(f => f.DefaultBomId)
+            .HasPrincipalKey(b => b.Id);
+    }
 }

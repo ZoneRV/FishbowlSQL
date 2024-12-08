@@ -98,6 +98,12 @@ public class FishbowlContextTests : IDisposable
     }
     
     [Test]
+    public void BomToLocation()
+    {
+        _fishbowlContext.BomToLocation.RunFullTest();
+    }
+    
+    [Test]
     public void CalCategory()
     {
         _fishbowlContext.CalCategory.RunFullTest();
