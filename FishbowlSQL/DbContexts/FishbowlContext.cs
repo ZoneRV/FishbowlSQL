@@ -9,6 +9,8 @@ public class FishbowlContext(string connectionString) : DbContext
     private readonly string _connectionString = connectionString;
 
     public DbSet<Account> Account { get; set; }
+    public DbSet<AccountGroup> AccountGroup { get; set; }
+    public DbSet<AccountGroupRelation> AccountGroupRelation { get; set; }
     public DbSet<AccountType> AccountType { get; set; }
     public DbSet<AsAccount> AsAccount { get; set; }
     public DbSet<AsAccountType> AsAccountType { get; set; }
@@ -65,5 +67,12 @@ public class FishbowlContext(string connectionString) : DbContext
     {
         optionsBuilder.UseMySQL(new MySqlConnection(_connectionString));
         base.OnConfiguring(optionsBuilder);
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        Models.Account.BuildModel(modelBuilder);
+        
+        base.OnModelCreating(modelBuilder);
     }
 }

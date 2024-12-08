@@ -36,8 +36,44 @@ public class FishbowlContextTests : IDisposable
     {
         var results = _fishbowlContext.Account
                                      .Include(e => e.AccountType)
+                                     .Include(e => e.AccountGroups)
+                                     .Include(e => e.Vendors)
+                                     .Include(e => e.Customers)
                                      .Take(10)
                                      .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+
+    [Test]
+    public void LoadAccountGroup()
+    {
+        var results = _fishbowlContext.AccountGroup
+            .Include(e => e.Accounts)
+             .Take(10)
+             .ToList();
+        
+        Assert.NotZero(results.Count);
+
+        foreach (var result in results)
+        {
+            Utils.AssertRequiredProperties(result);
+        }
+    }
+
+    [Test]
+    public void LoadAccountGroupRelation()
+    {
+        var results = _fishbowlContext.AccountGroupRelation
+            .Include(e => e.Account)
+            .Include(e => e.AccountGroup)
+            .Take(10)
+            .ToList();
         
         Assert.NotZero(results.Count);
 
