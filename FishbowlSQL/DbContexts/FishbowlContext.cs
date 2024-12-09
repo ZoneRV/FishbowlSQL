@@ -29,6 +29,7 @@ public class FishbowlContext(string connectionString) : DbContext
     public DbSet<Currency> Currency { get; set; }
     public DbSet<Customer> Customer { get; set; }
     public DbSet<FobPoint> FobPoint { get; set; }
+    public DbSet<Image> Image { get; set; }
     public DbSet<IssuableStatus> IssuableStatus { get; set; }
     public DbSet<ItemAdjust> ItemAdjust { get; set; }
     public DbSet<ItemAdjustType> ItemAdjustType { get; set; }

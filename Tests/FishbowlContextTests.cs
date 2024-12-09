@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using FishbowlSQL.DbContexts;
+using FishbowlSQL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -149,6 +150,12 @@ public class FishbowlContextTests : IDisposable
     public void FobPoint()
     {
         _fishbowlContext.RunFullTest(x => x.FobPoint);
+    }
+    
+    [Test]
+    public void Image()
+    {
+        _fishbowlContext.RunFullTest(x => x.Image);
     }
 
     [Test]
