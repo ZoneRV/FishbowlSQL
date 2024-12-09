@@ -78,7 +78,7 @@ public class Bom : IBaseEntity
     [ForeignKey("userId"), Required]
     public virtual SysUser User { get; init; }
     
-    //public virtual ICollection<BomInstructionItem> BomInstructionItems { get; set; }
+    public virtual ICollection<BomInstructionItem> BomInstructionItems { get; set; }
     //public virtual ICollection<BomInstructionItemAudit> BomInstructionItemAudits { get; set; } 
     public virtual ICollection<BomItem> BomItems { get; set; }
     //public virtual ICollection<BomItemAudit> BomItemAudits { get; set; }
@@ -92,6 +92,11 @@ public class Bom : IBaseEntity
     
     public static void BuildModel(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Bom>()
+            .HasMany(b => b.BomInstructionItems)
+            .WithOne(bii => bii.Bom)
+            .HasForeignKey(f => f.BomId);
+        
         modelBuilder.Entity<Bom>()
             .HasMany(b => b.BomItems)
             .WithOne(bi => bi.Bom)
