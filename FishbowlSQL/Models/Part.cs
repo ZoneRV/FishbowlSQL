@@ -170,9 +170,15 @@ public class Part : IBaseEntity
         
         [ForeignKey("defaultOutsourcedReturnItemId")]
         public virtual Part? DefaultOutsourcedReturnItem { get; init; }
+        
+        public virtual ICollection<Image> Images { get; init; }
 
         public static void BuildModel(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<Part>()
+                .HasMany(p => p.Images)
+                .WithOne()
+                .HasForeignKey(i => i.RecordId)
+                .HasPrincipalKey(p => p.Id);
         }
     }

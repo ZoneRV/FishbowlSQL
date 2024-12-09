@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using FishbowlSQL.Models;
 using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
@@ -71,6 +72,10 @@ public class FishbowlContext(string connectionString) : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseMySQL(new MySqlConnection(_connectionString));
+        
+        if(Debugger.IsAttached)
+            optionsBuilder.LogTo(s => Debug.WriteLine(s));
+        
         base.OnConfiguring(optionsBuilder);
     }
 
@@ -78,6 +83,8 @@ public class FishbowlContext(string connectionString) : DbContext
     {
         Models.Account.BuildModel(modelBuilder);
         Models.Bom.BuildModel(modelBuilder);
+        Models.Image.BuildModel(modelBuilder);
+        Models.Part.BuildModel(modelBuilder);
         
         base.OnModelCreating(modelBuilder);
     }
