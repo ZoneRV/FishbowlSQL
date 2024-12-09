@@ -1,19 +1,29 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq.Expressions;
 using System.Reflection;
+using FishbowlSQL.DbContexts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Tests;
 
 public static class Utils
 {
-    public static void RunFullTest<T>(this DbSet<T> set) where T : class
+    internal static void RunFullTest<TEntity, TSet>
+        (this TEntity context, Expression<Func<TEntity, DbSet<TSet>>> navigationPropertyPath) 
+        where TEntity : FishbowlContext 
+        where TSet : class
     {
+        var set = navigationPropertyPath.GetPropertyAccess().GetValue(context) as DbSet<TSet>;
+        
+        Assert.NotNull(set, "DB set not selected correctly in test.");
+
         set.AssertLoadBasic();
-        set.AssertLoadFull();
+        set.AssertLoadFull(context);
     }
     
-    public static void AssertLoadBasic<T>(this DbSet<T> set) where T : class
+    internal static void AssertLoadBasic<T>(this DbSet<T> set) where T : class
     {
         var results = set
             .Take(10)
@@ -27,7 +37,7 @@ public static class Utils
         }
     }
 
-    public static void AssertLoadFull<T>(this DbSet<T> set) where T : class
+    internal static void AssertLoadFull<T>(this DbSet<T> set, FishbowlContext context) where T : class
     {
         var results = set
             .IncludeAll()
@@ -38,11 +48,12 @@ public static class Utils
         
         foreach (var result in results)
         {
-            AssertPopulatedProperties(result);
+            AssertNavigationalProperties(result);
+            //AssertCollectionProperties(result, context); TODO: Finish test
         }
     }
     
-    public static void AssertRequiredProperties(object obj)
+    internal static void AssertRequiredProperties(object obj)
     {
         Type type = obj.GetType();
         var properties = type.GetProperties();
@@ -60,7 +71,7 @@ public static class Utils
         }
     }
     
-    public static void AssertPopulatedProperties(object obj)
+    internal static void AssertNavigationalProperties(object obj)
     {
         Type type = obj.GetType();
         var properties = type.GetProperties();
@@ -83,7 +94,38 @@ public static class Utils
         }
     }
 
-    public static IQueryable<TEntity> IncludeAll<TEntity>(this IQueryable<TEntity> source) where TEntity : class
+    internal static void AssertCollectionProperties<T>(object obj, FishbowlContext context) where T : class
+    {
+        throw new NotImplementedException();
+        
+        Type type = obj.GetType();
+        var properties = type.GetProperties();
+        
+        foreach (PropertyInfo propertyInfo in properties)
+        {
+            if (!propertyInfo.PropertyType.IsGenericType || propertyInfo.PropertyType.GetGenericTypeDefinition() != typeof(ICollection<>))
+                continue;
+            
+            Type collectionGeneric = propertyInfo.PropertyType.GenericTypeArguments.First();
+
+            PropertyInfo? dbSetPropInfo = context.GetType()
+                                .GetProperties()
+                                .FirstOrDefault(x => 
+                                    x.PropertyType.IsGenericType && 
+                                    x.PropertyType.GetGenericTypeDefinition() == typeof(DbSet<>) && 
+                                    x.PropertyType.GenericTypeArguments.Any(t => t == collectionGeneric));
+            
+            Assert.NotNull(dbSetPropInfo);
+
+            var dbSet = (DbSet<T>) dbSetPropInfo.GetValue(context, null);
+            
+            //dbSet.Select(x => dbSetPropInfo.PropertyType.GetProperties().First(x => Attribute.IsDefined(x, typeof(KeyAttribute)))).Where()
+            
+            Assert.True(true);
+        }
+    }
+
+    internal static IQueryable<TEntity> IncludeAll<TEntity>(this IQueryable<TEntity> source) where TEntity : class
     {
         var type = typeof(TEntity);
         

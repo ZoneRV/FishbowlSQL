@@ -34,336 +34,336 @@ public class FishbowlContextTests : IDisposable
     [Test]
     public void Account()
     {
-        _fishbowlContext.Account.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Account);
     }
 
     [Test]
     public void AccountGroup()
     {
-        _fishbowlContext.AccountGroup.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.AccountGroup);
     }
 
     [Test]
     public void AccountGroupRelation()
     {
-        _fishbowlContext.AccountGroupRelation.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.AccountGroupRelation);
     }
     
     [Test]
     public void AccountType()
     {
-        _fishbowlContext.AccountType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.AccountType);
     }
 
     [Test]
     public void AsAccount()
     {
-        _fishbowlContext.AsAccount.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.AsAccount);
     }
     
     [Test]
     public void AsAccountType()
     {
-        _fishbowlContext.AsAccountType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.AsAccountType);
     }
     
     [Test]
     public void Bom()
     {
-        _fishbowlContext.Bom.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Bom);
     }
     
     [Test]
     public void BomAutoCreateType()
     {
-        _fishbowlContext.BomAutoCreateType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.BomAutoCreateType);
     }
     
     [Test]
     public void BomInstructionItem()
     {
-        _fishbowlContext.BomInstructionItem.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.BomInstructionItem);
     }
     
     [Test]
     public void BomItem()
     {
-        _fishbowlContext.BomItem.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.BomItem);
     }
     
     [Test]
     public void BomItemGroup()
     {
-        _fishbowlContext.BomItemGroup.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.BomItemGroup);
     }
     
     [Test]
     public void BomItemType()
     {
-        _fishbowlContext.BomItemType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.BomItemType);
     }
     
     [Test]
     public void BomToLocation()
     {
-        _fishbowlContext.BomToLocation.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.BomToLocation);
     }
     
     [Test]
     public void CalCategory()
     {
-        _fishbowlContext.CalCategory.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.CalCategory);
     }
     
     [Test]
     public void Carrier()
     {
-        _fishbowlContext.Carrier.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Carrier);
     }
     
     [Test]
     public void CarrierService()
     {
-        _fishbowlContext.CarrierService.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.CarrierService);
     }
     
     [Test]
     public void CartonType()
     {
-        _fishbowlContext.CartonType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.CartonType);
     }
     
     [Test]
     public void Currency()
     {
-        _fishbowlContext.Currency.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Currency);
     }
 
     [Test]
     public void Customer()
     {
-        _fishbowlContext.Customer.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Customer);
     }
     
     [Test]
     public void FobPoint()
     {
-        _fishbowlContext.FobPoint.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.FobPoint);
     }
 
     [Test]
     public void IssuableStatus()
     {
-        _fishbowlContext.IssuableStatus.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.IssuableStatus);
     }
     
     [Test]
     public void ItemAdjust()
     {
-        _fishbowlContext.ItemAdjust.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.ItemAdjust);
     }
     
     [Test]
     public void ItemAdjustType()
     {
-        _fishbowlContext.ItemAdjustType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.ItemAdjustType);
     }
     
     [Test]
     public void KitDisplayType()
     {
-        _fishbowlContext.KitDisplayType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.KitDisplayType);
     }
     
     [Test]
     public void Location()
     {
-        _fishbowlContext.Location.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Location);
     }
     
     [Test]
     public void LocationGroup()
     {
-        _fishbowlContext.LocationGroup.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.LocationGroup);
     }
     
     [Test]
     public void LocationType()
     {
-        _fishbowlContext.LocationType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.LocationType);
     }
     
     [Test]
     public void Mo()
     {
-        _fishbowlContext.Mo.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Mo);
     }
     
     [Test]
     public void MoItem()
     {
-        _fishbowlContext.MoItem.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.MoItem);
     }
     
     [Test]
     public void MoItemStatus()
     {
-        _fishbowlContext.MoItemStatus.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.MoItemStatus);
     }
     
     [Test]
     public void MoStatus()
     {
-        _fishbowlContext.MoStatus.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.MoStatus);
     }
 
     [Test]
     public void OrderType()
     {
-        _fishbowlContext.OrderType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.OrderType);
     }
     
     [Test]
     public void Part()
     {
-        _fishbowlContext.Part.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Part);
     }
     
     [Test]
     public void PartType()
     {
-        _fishbowlContext.PartType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.PartType);
     }
 
     [Test]
     public void PaymentTerms()
     {
-        _fishbowlContext.PaymentTerms.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.PaymentTerms);
     }
 
     [Test]
     public void PaymentTermsType()
     {
-        _fishbowlContext.PaymentTermsType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.PaymentTermsType);
     }
     
     [Test]
     public void PoItemType()
     {
-        _fishbowlContext.PoItemType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.PoItemType);
     }
 
     [Test]
     public void Priority()
     {
-        _fishbowlContext.Priority.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Priority);
     }
     
     [Test]
     public void Product()
     {
-        _fishbowlContext.Product.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Product);
     }
 
     [Test]
     public void QbClass()
     {
-        _fishbowlContext.QbClass.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.QbClass);
     }
 
     [Test]
     public void ShipTerms()
     {
-        _fishbowlContext.ShipTerms.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.ShipTerms);
     }
     
     [Test]
     public void So()
     {
-        _fishbowlContext.So.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.So);
     }
     
     [Test]
     public void SoItem()
     {
-        _fishbowlContext.SoItem.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.SoItem);
     }
     
     [Test]
     public void SoItemType()
     {
-         _fishbowlContext.SoItemType.RunFullTest();
+         _fishbowlContext.RunFullTest(x => x.SoItemType);
     }
     
     [Test]
     public void SoItemStatus()
     {
-        _fishbowlContext.SoItemStatus.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.SoItemStatus);
     }
     
     [Test]
     public void SoType()
     {
-        _fishbowlContext.SoType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.SoType);
     }
 
     [Test]
     public void SysUser()
     {
-        _fishbowlContext.SysUser.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.SysUser);
     }
 
     [Test]
     public void TaxRate()
     {
-        _fishbowlContext.TaxRate.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.TaxRate);
     }
 
     [Test]
     public void TaxRateType()
     {
-        _fishbowlContext.TaxRateType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.TaxRateType);
     }
     
     [Test]
     public void Uom()
     {
-        _fishbowlContext.Uom.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Uom);
     }
     
     [Test]
     public void UomType()
     {
-        _fishbowlContext.UomType.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.UomType);
     }
 
     [Test]
     public void Vendor()
     {
-        _fishbowlContext.Vendor.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Vendor);
     }
 
     [Test]
     public void VendorStatus()
     {
-        _fishbowlContext.VendorStatus.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.VendorStatus);
     }
 
     [Test]
     public void Wo()
     {
-        _fishbowlContext.Wo.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.Wo);
     }
 
     [Test]
     public void WoInstruction()
     {
-        _fishbowlContext.WoInstruction.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.WoInstruction);
     }
 
     [Test]
     public void WoStatus()
     {
-        _fishbowlContext.WoStatus.RunFullTest();
+        _fishbowlContext.RunFullTest(x => x.WoStatus);
     }
 }
