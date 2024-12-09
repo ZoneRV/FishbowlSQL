@@ -2,6 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace FishbowlSQL.Models;
 
@@ -12,7 +13,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/part.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class Part
+public class Part : IBaseEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; init; }
@@ -169,4 +170,9 @@ public class Part
         
         [ForeignKey("defaultOutsourcedReturnItemId")]
         public virtual Part? DefaultOutsourcedReturnItem { get; init; }
+
+        public static void BuildModel(ModelBuilder modelBuilder)
+        {
+            
+        }
     }
