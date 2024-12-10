@@ -3,6 +3,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore;
 
 namespace FishbowlSQL.Models;
 
@@ -97,5 +98,24 @@ public class WorkOrder
     [ForeignKey("UserId"), Required]
     public virtual SysUser User { get; init; }
     
-    
+    public virtual ICollection<SysUser> AssignedUsers { get; set; }
+
+    public static void BuildModel(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<WorkOrder>()
+                    .HasOne(wo => wo.User)
+                    .WithMany(u => u.OwnedWorkOrders)
+                    .HasForeignKey(wo => wo.UserId)
+                    .HasPrincipalKey(u => u.Id);
+        
+        modelBuilder.Entity<WorkOrder>()
+                    .HasMany(wo => wo.AssignedUsers)
+                    .WithMany(u => u.AssignedWorkOrders)
+                    .UsingEntity(
+                         "woassignedusers",
+                         l => l.HasOne(typeof(SysUser)).WithMany().HasForeignKey("userId").HasPrincipalKey(nameof(Models.SysUser.Id)),
+                         r => r.HasOne(typeof(WorkOrder)).WithMany().HasForeignKey("woId").HasPrincipalKey(nameof(Models.WorkOrder.Id)),
+                         j => j.HasKey("userId", "woId"));
+
+    }
 }

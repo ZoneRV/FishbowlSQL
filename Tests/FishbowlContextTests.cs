@@ -1,4 +1,5 @@
 ﻿using FishbowlSQL.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tests;
 
@@ -353,6 +354,12 @@ public class FishbowlContextTests : IDisposable
     public void VendorStatus()
     {
         _fishbowlContext.RunFullTest(x => x.VendorStatus);
+    }
+
+    [Test]
+    public void WoAssignedUsers()
+    {
+        _fishbowlContext.RunFullTest(x => x.WoAssignedUsers);
     }
 
     [Test]

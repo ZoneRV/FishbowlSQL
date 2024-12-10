@@ -67,6 +67,7 @@ public class FishbowlContext : DbContext
     public DbSet<Vendor>                 Vendor               { get; set; }
     public DbSet<VendorStatus>           VendorStatus         { get; set; }
     public DbSet<WorkOrder>              Wo                   { get; set; }
+    public DbSet<WoAssignedUsers>        WoAssignedUsers      { get; set; }
     public DbSet<WorkOrderInstruction>   WoInstruction        { get; set; }
     public DbSet<WorkOrderItem>          WoItem               { get; set; }
     public DbSet<WorkOrderStatus>        WoStatus             { get; set; }
@@ -87,6 +88,7 @@ public class FishbowlContext : DbContext
         Models.BillOfMaterials.BuildModel(modelBuilder);
         Models.Image.BuildModel(modelBuilder);
         Models.Part.BuildModel(modelBuilder);
+        Models.WorkOrder.BuildModel(modelBuilder);
         
         base.OnModelCreating(modelBuilder);
     }

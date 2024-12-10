@@ -14,8 +14,7 @@ namespace FishbowlSQL.Models;
 /// </summary>
 public class SysUser
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
     [Required] 
@@ -57,4 +56,9 @@ public class SysUser
     // TODO: Implement manual handling for the CustomFields as it's a JSON type
     [Column(TypeName="json")]
     public string? CustomFields { get; init; }
+    
+    //TODO Test the following seperate
+    public virtual ICollection<WorkOrder> AssignedWorkOrders { get; set; }
+    public virtual ICollection<WorkOrder> OwnedWorkOrders { get; set; }
+    
 }
