@@ -368,6 +368,12 @@ public class FishbowlContextTests : IDisposable
     }
 
     [Test]
+    public void WoItem()
+    {
+        _fishbowlContext.RunFullTest(x => x.WoItem);
+    }
+
+    [Test]
     public void WoStatus()
     {
         _fishbowlContext.RunFullTest(x => x.WoStatus);

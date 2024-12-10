@@ -68,6 +68,7 @@ public class FishbowlContext : DbContext
     public DbSet<VendorStatus>           VendorStatus         { get; set; }
     public DbSet<WorkOrder>              Wo                   { get; set; }
     public DbSet<WorkOrderInstruction>   WoInstruction        { get; set; }
+    public DbSet<WorkOrderItem>          WoItem               { get; set; }
     public DbSet<WorkOrderStatus>        WoStatus             { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
