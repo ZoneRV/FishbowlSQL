@@ -12,7 +12,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/bomautocreatetype.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class BomAutoCreateType
+public class BOMAutoCreateType
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }

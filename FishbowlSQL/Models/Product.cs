@@ -127,13 +127,13 @@ public class Product
     public virtual TaxRate? Tax { get; init; }
     
     [ForeignKey("UomId"), Required]
-    public virtual Uom? Uom { get; init; }
+    public virtual UnitOfMeasurement? Uom { get; init; }
     
     [ForeignKey("sizeUomId")]
-    public virtual Uom? SizeUom { get; init; }
+    public virtual UnitOfMeasurement? SizeUom { get; init; }
     
     [ForeignKey("weightUomId")]
-    public virtual Uom? WeightUom { get; init; }
+    public virtual UnitOfMeasurement? WeightUom { get; init; }
 
     [ForeignKey("defaultCartonTypeId")]
     public virtual CartonType? DefaultCartonType { get; init; }

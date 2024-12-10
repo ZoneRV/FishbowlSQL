@@ -133,10 +133,10 @@ public class Part : IBaseEntity
         public virtual AsAccount? AdjustmentAccount { get; init; }
         
         [ForeignKey("DefaultBomId")]
-        public virtual Bom? DefaultBom { get; init; }
+        public virtual BillOfMaterials? DefaultBom { get; init; }
         
         [ForeignKey("defaultPoItemTypeId")]
-        public virtual PoItemType? DefaultPoItemType { get; init; }
+        public virtual PurchaseOrderItemType? DefaultPoItemType { get; init; }
         
         [ForeignKey("CogsAccountId")]
         public virtual AsAccount? CogsAccount { get; init; }
@@ -154,19 +154,19 @@ public class Part : IBaseEntity
         public virtual AsAccount ScrapAccount { get; init; }
         
         [ForeignKey("sizeUomId")]
-        public virtual Uom SizeUom { get; init; }
+        public virtual UnitOfMeasurement SizeUom { get; init; }
         
         [ForeignKey("taxId")]
         public virtual TaxRate? Tax { get; init; }
         
         [ForeignKey("uomId")]
-        public virtual Uom Uom { get; init; }
+        public virtual UnitOfMeasurement Uom { get; init; }
         
         [ForeignKey("varianceAccountId")]
         public virtual AsAccount? VarianceAccount { get; init; }
         
         [ForeignKey("weightUomId")]
-        public virtual Uom? WeightUom { get; init; }
+        public virtual UnitOfMeasurement? WeightUom { get; init; }
         
         [ForeignKey("defaultOutsourcedReturnItemId")]
         public virtual Part? DefaultOutsourcedReturnItem { get; init; }

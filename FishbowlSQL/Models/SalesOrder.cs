@@ -10,7 +10,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/so.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class So
+public class SalesOrder
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -223,7 +223,7 @@ public class So
     public virtual TaxRate? TaxRateTable { get; init; } //TODO Figure out a better name for the TaxRate double ups
 
     [ForeignKey("typeId"), Required]
-    public virtual SoType Type { get; init; }
+    public virtual SalesOrderType Type { get; init; }
 
     [ForeignKey("calCategoryId")]
     public virtual CalCategory? CalCategory { get; init; }

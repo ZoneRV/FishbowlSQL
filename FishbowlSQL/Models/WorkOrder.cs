@@ -83,7 +83,7 @@ public class WorkOrder
     public virtual LocationGroup? LocationGroup { get; init; }
     
     [ForeignKey("moItemId"), Required]
-    public virtual MoItem? MoItem { get; init; }
+    public virtual ManufacturingOrderItem? MoItem { get; init; }
     
     [ForeignKey("priorityId"), Required]
     public virtual Priority Priority { get; init; }
@@ -96,4 +96,6 @@ public class WorkOrder
     
     [ForeignKey("UserId"), Required]
     public virtual SysUser User { get; init; }
+    
+    
 }

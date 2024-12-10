@@ -12,7 +12,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/mo.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class Mo
+public class ManufacturingOrder
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -63,7 +63,7 @@ public class Mo
     public virtual QbClass? QbClass { get; init; }
         
     [ForeignKey("soId")]
-    public virtual So? So { get; init; }
+    public virtual SalesOrder? So { get; init; }
         
     [ForeignKey("statusId"), Required]
     public virtual MoStatus Status { get; init; }

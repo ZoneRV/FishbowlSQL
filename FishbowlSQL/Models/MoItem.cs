@@ -12,7 +12,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/moitem.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class MoItem
+public class ManufacturingOrderItem
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -76,19 +76,19 @@ public class MoItem
     public int? CalCategoryId { get; init; }
 
     [ForeignKey("parentId")]
-    public virtual MoItem? Parent { get; init; }
+    public virtual ManufacturingOrderItem? Parent { get; init; }
 
     [ForeignKey("statusId"), Required]
     public virtual MoItemStatus Status { get; init; }
 
     [ForeignKey("bomItemId")]
-    public virtual BomItem? BomItem { get; init; }
+    public virtual BOMItem? BomItem { get; init; }
 
     [ForeignKey("typeId"), Required]
-    public virtual BomItemType Type { get; init; }
+    public virtual BOMItemType Type { get; init; }
 
     [ForeignKey("bomId")]
-    public virtual Bom? Bom { get; init; }
+    public virtual BillOfMaterials? Bom { get; init; }
 
     [ForeignKey("qbClassId")]
     public virtual QbClass? QbClass { get; init; }
@@ -97,13 +97,13 @@ public class MoItem
     public virtual Part? Part { get; init; }
 
     [ForeignKey("moId")]
-    public virtual Mo? Mo { get; init; }
+    public virtual ManufacturingOrder? Mo { get; init; }
 
     [ForeignKey("soItemId")]
-    public virtual SoItem? SoItem { get; init; }
+    public virtual SalesOrderItem? SoItem { get; init; }
 
     [ForeignKey("uomId")]
-    public virtual Uom? Uom { get; init; }
+    public virtual UnitOfMeasurement? Uom { get; init; }
 
     [ForeignKey("priorityId")]
     public virtual Priority? Priority { get; init; }

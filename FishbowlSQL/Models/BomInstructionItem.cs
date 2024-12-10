@@ -10,7 +10,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/bominstructionitem.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class BomInstructionItem
+public class BOMInstructionItem
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long Id { get; set; }
@@ -38,5 +38,5 @@ public class BomInstructionItem
     public string CustomFields { get; init; }
         
     [ForeignKey("BomId"), Required]
-    public virtual Bom Bom { get; set; }
+    public virtual BillOfMaterials Bom { get; set; }
 }

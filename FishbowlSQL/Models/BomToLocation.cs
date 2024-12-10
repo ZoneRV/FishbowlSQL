@@ -10,7 +10,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/bomtolocation.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class BomToLocation
+public class BOMToLocation
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -25,7 +25,7 @@ public class BomToLocation
     public int LocationId { get; set; }
     
     [ForeignKey("bomId"), Required]
-    public virtual Bom Bom { get; set; }
+    public virtual BillOfMaterials Bom { get; set; }
     
     [ForeignKey("locationGroupId"), Required]
     public virtual LocationGroup LocationGroup { get; set; }

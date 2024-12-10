@@ -12,7 +12,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/bomitemgroup.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class BomItemGroup
+public class BOMItemGroup
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -30,5 +30,5 @@ public class BomItemGroup
     public int SortOrder { get; init; }
 
     [ForeignKey("BomId"), Required]
-    public virtual Bom Bom { get; init; }
+    public virtual BillOfMaterials Bom { get; init; }
 }

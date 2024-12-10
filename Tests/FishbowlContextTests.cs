@@ -1,8 +1,4 @@
-﻿using System.Configuration;
-using FishbowlSQL.DbContexts;
-using FishbowlSQL.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using FishbowlSQL.DbContexts;
 
 namespace Tests;
 
@@ -24,7 +20,10 @@ public class FishbowlContextTests : IDisposable
             throw new ArgumentNullException(connectionVariable);
         }
         
-        _fishbowlContext = new FishbowlContext(connectionVariable);
+        _fishbowlContext = new FishbowlContext
+        {
+            ConnectionString = connectionVariable
+        };
     }
 
     public void Dispose()

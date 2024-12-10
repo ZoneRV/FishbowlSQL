@@ -51,5 +51,5 @@ public class WorkOrderInstruction
     public virtual WorkOrder WorkOrder { get; set; }
     
     [ForeignKey("BomInstructionItemId")]
-    public virtual BomInstructionItem? BomInstructionItem { get; set; }
+    public virtual BOMInstructionItem? BomInstructionItem { get; set; }
 }

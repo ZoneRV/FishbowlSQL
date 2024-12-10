@@ -12,7 +12,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/uom.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class Uom
+public class UnitOfMeasurement
 {
     [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -45,5 +45,5 @@ public class Uom
     public int UomType { get; init; }
 
     [ForeignKey("UomType"), Required]
-    public virtual UomType UomTypeNavigation { get; init; }
+    public virtual UnitOfMeasurementType UnitOfMeasurementType { get; init; }
 }

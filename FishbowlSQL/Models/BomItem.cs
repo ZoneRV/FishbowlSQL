@@ -12,7 +12,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/bomitem.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class BomItem
+public class BOMItem
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -72,17 +72,17 @@ public class BomItem
     public string? CustomFields { get; init; }
         
     [ForeignKey("bomId"), Required]
-    public virtual Bom Bom { get; init; }
+    public virtual BillOfMaterials Bom { get; init; }
         
     [ForeignKey("bomItemGroupId")]
-    public virtual BomItemGroup? BomItemGroup { get; init; }
+    public virtual BOMItemGroup? BomItemGroup { get; init; }
         
     [ForeignKey("partId")]
     public virtual Part? Part { get; init; }
         
     [ForeignKey("typeId"), Required]
-    public virtual BomItemType Type { get; init; }
+    public virtual BOMItemType Type { get; init; }
         
     [ForeignKey("uomId")]
-    public virtual Uom? Uom { get; init; }
+    public virtual UnitOfMeasurement? Uom { get; init; }
 }

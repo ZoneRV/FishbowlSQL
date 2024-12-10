@@ -11,10 +11,10 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/uomtype.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class UomType
+public class UnitOfMeasurementType
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; init; }
+    public int Id { get; init; } 
 
     [StringLength(15), Required]
     public string Name { get; init; }

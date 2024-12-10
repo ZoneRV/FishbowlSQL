@@ -12,7 +12,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/bomitemtype.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class BomItemType
+public class BOMItemType
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }

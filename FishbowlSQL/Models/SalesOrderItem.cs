@@ -12,7 +12,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/soitem.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class SoItem
+public class SalesOrderItem
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -107,7 +107,7 @@ public class SoItem
     public virtual QbClass? QbClass { get; init; }
 
     [ForeignKey("soId"), Required]
-    public virtual So So { get; init; }
+    public virtual SalesOrder So { get; init; }
 
     [ForeignKey("statusId"), Required]
     public virtual SoItemStatus Status { get; init; }
@@ -119,5 +119,5 @@ public class SoItem
     public virtual SoItemType Type { get; init; }
 
     [ForeignKey("uomId")]
-    public virtual Uom? Uom { get; init; }
+    public virtual UnitOfMeasurement? Uom { get; init; }
 }
