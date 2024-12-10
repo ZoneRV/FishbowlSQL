@@ -2,6 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace FishbowlSQL.Models;
 
@@ -21,9 +22,9 @@ public class AccountGroupRelation
     
     public int? GroupId { get; init; }
     
-    [ForeignKey("accountId")]
+    [ForeignKey("accountId"), DeleteBehavior(DeleteBehavior.Restrict)]
     public virtual Account? Account { get; init; }
     
-    [ForeignKey("groupId")]
+    [ForeignKey("groupId"), DeleteBehavior(DeleteBehavior.Restrict)]
     public virtual AccountGroup? AccountGroup { get; init; }
 }
