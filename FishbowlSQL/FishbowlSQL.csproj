@@ -4,6 +4,19 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>0.1.0</Version>
+        <PackageReleaseNotes>Initial upload</PackageReleaseNotes>
+        <Title>Fishbowl SQL</Title>
+        <Description>**Work in progress, not yet completed**
+An entity framework library for Fishbowl</Description>
+        <Authors>Liam Thompson</Authors>
+        <RepositoryUrl>https://github.com/ZoneRV/FishbowlSQL</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/orgs/ZoneRV/projects/2/views/1</PackageProjectUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>SQL Fishbowl</PackageTags>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
 
     <ItemGroup>
