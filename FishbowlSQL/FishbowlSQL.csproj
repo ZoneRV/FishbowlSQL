@@ -5,22 +5,23 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>0.1.0</Version>
-        <PackageReleaseNotes>Initial upload</PackageReleaseNotes>
+        <Version>0.1.1-preview</Version>
+        <PackageReleaseNotes>Updating nuget config</PackageReleaseNotes>
         <Title>Fishbowl SQL</Title>
         <Description>**Work in progress, not yet completed**
 An entity framework library for Fishbowl</Description>
         <Authors>Liam Thompson</Authors>
         <RepositoryUrl>https://github.com/ZoneRV/FishbowlSQL</RepositoryUrl>
-        <PackageProjectUrl>https://github.com/orgs/ZoneRV/projects/2/views/1</PackageProjectUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageTags>SQL Fishbowl</PackageTags>
+        <PackageTags>SQL Fishbowl EntityFramework</PackageTags>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
 
     <ItemGroup>
         <Folder Include="SQL files\"/>
+        <None Include=".\readme.md" Pack="true" PackagePath="/"/>
     </ItemGroup>
 
     <ItemGroup>
