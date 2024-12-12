@@ -1,3 +1,5 @@
+# Workflow found here https://acraven.medium.com/a-nuget-package-workflow-using-github-actions-7da8c6557863
+
 on:
   push:
     tags:
@@ -8,7 +10,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.2.2
       - name: Verify commit exists in origin/main
         run: |
           git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
