@@ -20,6 +20,4 @@ jobs:
       - name: Pack
         run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
       - name: Push
-        run: dotnet nuget push FishbowlSQL.${VERSION}.nupkg --api-key ${NUGETAPIKEY}
-        env:
-          NUGETAPIKEY: ${{ secrets.NUGETAPIKEY }}
+        run: dotnet nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -api-key ${{ secrets.NUGETAPIKEY }} -SkipDuplicate
