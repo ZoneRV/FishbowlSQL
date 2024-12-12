@@ -29,10 +29,4 @@ An entity framework library for Fishbowl</Description>
         <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8"/>
     </ItemGroup>
 
-    <Target Name="PrepareReleaseNotes" BeforeTargets="GenerateNuspec">
-        <PropertyGroup>
-            <PackageDescription>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/../Release-Notes"))</PackageDescription>
-        </PropertyGroup>
-    </Target>
-
 </Project>
