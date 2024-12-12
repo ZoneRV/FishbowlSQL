@@ -3,29 +3,29 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FishbowlSQL.Models;
 
 /// <summary>
 ///     See <a href="https://github.com/ZoneRV/FishbowlSQL/blob/master/FishbowlSQL/SQL%20files/bom.sql">Link</a> for
 ///     SQL script.
-///     <br/>
+///     <br />
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/bom.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
 public class Account : IBaseEntity
 {
-    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
 
     public int? TypeId { get; init; }
 
-    [ForeignKey("TypeId")] 
-    public virtual AccountType? AccountType { get; init; }
-    
+    [ForeignKey("TypeId")] public virtual AccountType? AccountType { get; init; }
+
     //TODO Test
     public virtual ICollection<AccountGroup> AccountGroups { get; set; }
+
     //public virtual ICollection<Address> Addresses { get; set; }
     //public virtual ICollection<AddressAudit> AddressAudits { get; set; }
     //public virtual ICollection<AddressMultiLineView> AddressMultiLineViews { get; set; }
@@ -34,6 +34,7 @@ public class Account : IBaseEntity
     //public virtual ICollection<Contact> Contacts { get; set; }
     //public virtual ICollection<ContactAudit> ContactAudits { get; set; }
     public virtual ICollection<Customer> Customers { get; set; }
+
     //public virtual ICollection<CustomerAudit> CustomerAudits { get; set; }
     public virtual ICollection<Vendor> Vendors { get; set; }
     //public virtual ICollection<VendorAudit> VendorAudits { get; set; }
@@ -45,8 +46,9 @@ public class Account : IBaseEntity
             .WithMany(ag => ag.Accounts)
             .UsingEntity(
                 "accountgrouprelation",
-                l => l.HasOne(typeof(AccountGroup)).WithMany().HasForeignKey("GroupId").HasPrincipalKey(nameof(Models.AccountGroup.Id)),
-                r => r.HasOne(typeof(Account)).WithMany().HasForeignKey("AccountId").HasPrincipalKey(nameof(Models.Account.Id)),
+                l => l.HasOne(typeof(AccountGroup)).WithMany().HasForeignKey("GroupId")
+                    .HasPrincipalKey(nameof(AccountGroup.Id)),
+                r => r.HasOne(typeof(Account)).WithMany().HasForeignKey("AccountId").HasPrincipalKey(nameof(Id)),
                 j => j.HasKey("GroupId", "AccountId"));
 
         modelBuilder.Entity<Account>()
