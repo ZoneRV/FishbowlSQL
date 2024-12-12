@@ -14,7 +14,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/wo.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class WorkOrder
+public class WorkOrder : IBaseEntity
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
