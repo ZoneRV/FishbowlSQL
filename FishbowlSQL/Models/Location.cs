@@ -2,6 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace FishbowlSQL.Models;
 
@@ -72,4 +73,6 @@ public class Location
     
     [ForeignKey("typeId"), Required]
     public virtual LocationType Type { get;init; }
+    
+    public virtual ICollection<BOMToLocation> Boms { get; set; }
 }
