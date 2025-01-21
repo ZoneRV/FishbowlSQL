@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace FishbowlSQL.Models;
 
@@ -12,7 +13,7 @@ namespace FishbowlSQL.Models;
 ///     official Fishbowl documentation.
 /// </summary>
 [Table("PO")]
-public class PickingOrder
+public class PickingOrder : IBaseEntity
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -177,4 +178,14 @@ public class PickingOrder
 
     [ForeignKey("shipTermsId")]
     public ShipTerms ShipTerms { get; init; }
+    
+    public virtual ICollection<PoItem> PickingOrderItems { get; init; }
+    public static void BuildModel(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<PickingOrder>()
+                    .HasMany(po => po.PickingOrderItems)
+                    .WithOne(poi => poi.Po)
+                    .HasForeignKey(poi => poi.PoId)
+                    .HasPrincipalKey(po => po.Id);
+    }
 }

@@ -93,6 +93,7 @@ public class FishbowlContext : DbContext
         Models.Image.BuildModel(modelBuilder);
         Models.Part.BuildModel(modelBuilder);
         Models.WorkOrder.BuildModel(modelBuilder);
+        Models.PickingOrder.BuildModel(modelBuilder);
         
         base.OnModelCreating(modelBuilder);
     }

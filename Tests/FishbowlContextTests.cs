@@ -329,7 +329,13 @@ public class FishbowlContextTests : IDisposable
     [Test]
     public void SoItemStatus()
     {
-        _fishbowlContext.RunFullTest(x => x.SoItemStatus);
+         _fishbowlContext.RunFullTest(x => x.SoItemStatus);
+    }
+    
+    [Test]
+    public void SoStatus()
+    {
+        _fishbowlContext.RunFullTest(x => x.SoStatus);
     }
     
     [Test]
