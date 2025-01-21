@@ -136,7 +136,7 @@ public class Part : IBaseEntity
         public virtual BillOfMaterials? DefaultBom { get; init; }
         
         [ForeignKey("defaultPoItemTypeId")]
-        public virtual PurchaseOrderItemType? DefaultPoItemType { get; init; }
+        public virtual PoItemType? DefaultPoItemType { get; init; }
         
         [ForeignKey("CogsAccountId")]
         public virtual AsAccount? CogsAccount { get; init; }

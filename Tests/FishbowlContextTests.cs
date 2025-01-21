@@ -255,9 +255,33 @@ public class FishbowlContextTests : IDisposable
     }
     
     [Test]
+    public void PickingOrder()
+    {
+        _fishbowlContext.RunFullTest(x => x.PickingOrder);
+    }
+    
+    [Test]
+    public void PoItem()
+    {
+        _fishbowlContext.RunFullTest(x => x.PoItem);
+    }
+    
+    [Test]
     public void PoItemType()
     {
         _fishbowlContext.RunFullTest(x => x.PoItemType);
+    }
+    
+    [Test]
+    public void PoStatus()
+    {
+        _fishbowlContext.RunFullTest(x => x.PoStatus);
+    }
+    
+    [Test]
+    public void PoType()
+    {
+        _fishbowlContext.RunFullTest(x => x.PoType);
     }
 
     [Test]
