@@ -12,7 +12,7 @@ public class FishbowlContextTests : IDisposable
     public void SetUp()
     {
         if (!File.Exists(sqlStringFileLocation))
-            throw new FileNotFoundException("Add ./MySqlString.txt to your file system and add a connection string");
+            throw new FileNotFoundException($"Add {sqlStringFileLocation} to your file system and add a connection string");
 
         string? connectionVariable = File.ReadAllText(sqlStringFileLocation);
 
@@ -414,5 +414,11 @@ public class FishbowlContextTests : IDisposable
     public void WoStatus()
     {
         _fishbowlContext.RunFullTest(x => x.WoStatus);
+    }
+    
+    [Test]
+    public void QtyInventory()
+    {
+        _fishbowlContext.RunFullTest(x => x.QuantityInventory);
     }
 }
