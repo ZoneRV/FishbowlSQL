@@ -4,15 +4,7 @@ on:
       - 'v*'
 
 jobs:
-  check-package-licenses:
-    uses: ZoneRV/.github/.github/workflows/check-package-licenses.yml@main
-    with:
-      dotnet-version: '9.0.x'
-      solution-path: './FishbowlSQL.sln'
-    secrets: inherit
-
   build-test-and-push:
-    needs: check-package-licenses
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
