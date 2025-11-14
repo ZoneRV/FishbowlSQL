@@ -96,6 +96,7 @@ public class FishbowlContext : DbContext
         Models.WorkOrder.BuildModel(modelBuilder);
         Models.PickingOrder.BuildModel(modelBuilder);
         Models.QuantityInventory.BuildModel(modelBuilder);
+        Models.ManufacturingOrder.BuildModel(modelBuilder);
         
         base.OnModelCreating(modelBuilder);
     }

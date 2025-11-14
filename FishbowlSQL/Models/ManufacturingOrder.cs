@@ -2,6 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace FishbowlSQL.Models;
 
@@ -12,7 +13,7 @@ namespace FishbowlSQL.Models;
 ///     See <a href="https://fishbowlhelp.com/files/database/tables/mo.html">Link</a> for
 ///     official Fishbowl documentation.
 /// </summary>
-public class ManufacturingOrder
+public class ManufacturingOrder : IBaseEntity
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
@@ -70,4 +71,16 @@ public class ManufacturingOrder
         
     [ForeignKey("userId"), Required]
     public virtual SysUser User { get; init; }
+    
+    public virtual ICollection<ManufacturingOrderItem> MoItems { get; set; }
+    //public virtual ICollection<MoItemAudit> MoItemAudits { get; set; }
+
+    public static void BuildModel(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<ManufacturingOrder>()
+            .HasMany(b => b.MoItems)
+            .WithOne(mi => mi.Mo)
+            .HasForeignKey(f => f.MoId)
+            .HasPrincipalKey(b => b.Id);
+    }
 }

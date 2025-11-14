@@ -1,0 +1,50 @@
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  check-package-licenses:
+    uses: ZoneRV/.github/.github/workflows/check-package-licenses.yml@main
+    with:
+      dotnet-version: '9.0.x'
+      solution-path: './FishbowlSQL.sln'
+    secrets: inherit
+
+  build-test-and-push:
+    needs: check-package-licenses
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: true    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set VERSION variable from tag
+        run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Add internal nuget source
+        run: dotnet nuget add source 'https://nuget.pkg.github.com/ZoneRv/index.json' -n 'Zone Github' -u ${{ vars.OWNER_USERNAME}} -p ${{ secrets.GIT_PACKAGE_API_KEY }} --store-password-in-clear-text
+
+      - name: Build
+        run: dotnet build --configuration Release /p:Version=${VERSION}
+
+      - name: Run tests
+        run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
+
+      - name: Clean up .nupkg files
+        run: find . -name "*.nupkg" -type f -delete
+
+      - name: Pack
+        run: dotnet pack --configuration Release /p:Version=${VERSION} --output .
+
+      - name: Push
+        run: dotnet nuget push **\*.nupkg --skip-duplicate -s 'https://nuget.pkg.github.com/ZoneRv/index.json' -k ${{ secrets.GIT_PACKAGE_API_KEY }}
